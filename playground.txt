@@ -1,0 +1,35 @@
+|unacolTan unidad tdron tliviano tpesado bazooca misiltermico colarmas|
+
+tliviano := TanqueLiviano new.
+tliviano velocidad: 100.
+
+tpesado := TanquePesado new.
+tpesado velocidad: 100.
+
+colarmas := OrderedCollection new.
+
+bazooca := Bazooca new.
+bazooca cabezasNucleares: 4.
+"colarmas add: bazooca."
+
+misiltermico := MisilTermico new.
+colarmas add: misiltermico.
+
+tliviano misiles: colarmas.
+tpesado misiles: colarmas.
+
+tliviano atacarTanque: tpesado.
+
+tpesado decrementarBlindaje: 51.
+tdron := TanqueBlindajeEM  new.
+
+tdron decrementarBlindaje: 100.
+
+(tpesado modelo) tripulantes: 0.
+unidad:= Unidad new.
+unacolTan:= OrderedCollection new.
+unacolTan add: tpesado.
+unacolTan add: tdron.
+unidad tanques: unacolTan.
+
+tpesado atacarUnidad: unidad.
